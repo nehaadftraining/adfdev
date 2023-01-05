@@ -1,0 +1,9 @@
+{
+	"name": "adf-neha25-datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "74ca5cf1-5b35-4788-838c-2728b7a07a58",
+		"tenantId": "759c46cf-f4ce-4a64-9a02-1e32fa82c5db"
+	}
+}

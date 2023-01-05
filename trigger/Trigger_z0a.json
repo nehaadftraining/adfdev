@@ -1,0 +1,24 @@
+{
+	"name": "Trigger_z0a",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyPipeline_z0a",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2023-01-04T12:00:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
