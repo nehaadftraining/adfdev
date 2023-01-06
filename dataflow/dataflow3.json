@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: true,",
@@ -22,7 +26,8 @@
 				"     requestInterval: 0,",
 				"     paginationRules: ['supportRFC5988' -> 'true'],",
 				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine'],",
-				"     dateFormats: ['yyyy/MM/dd']) ~> source1"
+				"     dateFormats: ['yyyy/MM/dd']) ~> source1",
+				"source1 derive() ~> derivedColumn1"
 			]
 		}
 	}
