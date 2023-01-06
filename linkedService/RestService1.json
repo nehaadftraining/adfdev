@@ -1,0 +1,12 @@
+{
+	"name": "RestService1",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": " https://data.cityofchicago.org/resource/crimes.json?$limit=50000",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
