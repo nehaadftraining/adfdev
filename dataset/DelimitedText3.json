@@ -1,0 +1,27 @@
+{
+	"name": "DelimitedText3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "unzip_AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "1\t1970 Napa Ct.\t\tBothell\t79\t98011\tE6100000010CAE8BFC28BCE4474067A89189898A5EC0\t{9AADCB0D-36CF-483F-84D8-585C2D4EC6E9}\t2007-12-04 00:00:00",
+				"type": "String"
+			}
+		]
+	}
+}
