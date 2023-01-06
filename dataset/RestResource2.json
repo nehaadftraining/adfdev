@@ -1,5 +1,5 @@
 {
-	"name": "RestResource1",
+	"name": "RestResource2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "RestService1",
@@ -7,9 +7,6 @@
 		},
 		"annotations": [],
 		"type": "RestResource",
-		"typeProperties": {
-			"relativeUrl": " https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
-		},
 		"schema": []
 	}
 }
