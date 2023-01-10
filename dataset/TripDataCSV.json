@@ -1,0 +1,26 @@
+{
+	"name": "TripDataCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfdatalakegen25_linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Demo"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "trip-data.csv",
+				"fileSystem": "staging-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
