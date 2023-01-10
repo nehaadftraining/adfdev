@@ -1,0 +1,17 @@
+{
+	"name": "ImageFilesDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adflabneha25storageacc_linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sampledata"
+			}
+		}
+	}
+}
