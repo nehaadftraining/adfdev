@@ -1,0 +1,22 @@
+{
+	"name": "EmpinfoDestinationDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adflabneha25storageacc_linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "target"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
