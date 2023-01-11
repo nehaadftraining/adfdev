@@ -1,0 +1,9 @@
+{
+	"name": "adf-neha2507-datafactory",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "142d3d22-bd9e-4dfb-b6be-eb4ce66afa16",
+		"tenantId": "de08c407-19b9-427d-9fe8-edf254300ca7"
+	}
+}
