@@ -1,0 +1,82 @@
+{
+	"name": "FilterAndDerivedColumn",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "MoviesDB",
+						"type": "DatasetReference"
+					},
+					"name": "MoviesDB"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "MoviesDBFilterandDerivedSink",
+						"type": "DatasetReference"
+					},
+					"name": "MoviesDBSinkDerivedColumn"
+				}
+			],
+			"transformations": [
+				{
+					"name": "RenameRottonTomato"
+				},
+				{
+					"name": "FilterYearsBefore1951"
+				},
+				{
+					"name": "DerivedPrimaryGenres"
+				},
+				{
+					"name": "DeleteUnwantedColumn"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          movie as string,",
+				"          title as string,",
+				"          genres as string,",
+				"          year as string,",
+				"          Rating as string,",
+				"          {Rotton Tomato} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> MoviesDB",
+				"MoviesDB select(mapColumn(",
+				"          movie,",
+				"          title,",
+				"          genres,",
+				"          year,",
+				"          Rating,",
+				"          {Rotten Tomato} = {Rotton Tomato}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> RenameRottonTomato",
+				"RenameRottonTomato filter(toInteger(year)>1951) ~> FilterYearsBefore1951",
+				"FilterYearsBefore1951 derive({Primary genres} = iif(locate('|',genres)>1,left(genres, locate('|',genres)-1),genres)) ~> DerivedPrimaryGenres",
+				"DerivedPrimaryGenres select(mapColumn(",
+				"          movie,",
+				"          title,",
+				"          year,",
+				"          Rating,",
+				"          {Rotten Tomato},",
+				"          {Primary genres}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> DeleteUnwantedColumn",
+				"DeleteUnwantedColumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> MoviesDBSinkDerivedColumn"
+			]
+		}
+	}
+}
