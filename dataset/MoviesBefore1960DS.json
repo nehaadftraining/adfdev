@@ -5,6 +5,9 @@
 			"referenceName": "adfdatalakegen25_linkedservice",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Movies"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
