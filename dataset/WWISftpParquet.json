@@ -1,0 +1,43 @@
+{
+	"name": "WWISftpParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "WWISftp",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folder": {
+				"type": "string",
+				"defaultValue": "upload/orderlines"
+			},
+			"filename": {
+				"type": "string",
+				"defaultValue": "orderlines_2019-02-06"
+			},
+			"filetype": {
+				"type": "string",
+				"defaultValue": "parquet"
+			}
+		},
+		"folder": {
+			"name": "sftp"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "SftpLocation",
+				"fileName": {
+					"value": "@{dataset().filename}.@{dataset().filetype}",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
